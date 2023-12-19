@@ -35,7 +35,7 @@ async function run() {
     console.log(joke);
     core.setOutput('joke-output', joke);
     const issue = github.context.issue;
-    octokit.rest.issues.createComment({owner: issue.owner, repo: issue.repo, issue_number: issue.number, joke});
+    octokit.rest.issues.createComment({owner: issue.owner, repo: issue.repo, issue_number: issue.number, body: joke});
 }
 
 run();
