@@ -33,6 +33,7 @@ const octokit = new MyOctokit(getOctokitOptions(token, {
 async function run() {
     const joke = await getJoke();
     console.log(joke);
+    core.info('This is a log message with a url: https://google.com');
     core.setOutput('joke-output', joke);
     const issue = github.context.issue;
     octokit.rest.issues.createComment({owner: issue.owner, repo: issue.repo, issue_number: issue.number, body: joke});
